@@ -8,17 +8,17 @@
 # -------------------------------------------------------------------------------
 #
 # Copyright 2019 Salvatore Sanfilippo <antirez@gmail.com>
-# 
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright notice,
 # this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright notice,
 # this list of conditions and the following disclaimer in the documentation
 # and/or other materials provided with the distribution.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 # "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
 # TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -94,6 +94,7 @@ end
 # At the same time, as a side effect, writes the key that will represent
 # such file on Redis.
 def file2keys(r,selector,title,filename,type,localhost,localport)
+    selector = selector.delete_suffix('/')
     type = "" if !type
     if ['zip','bin','gz','tgz','o'].member?(type)
         type = '9'
